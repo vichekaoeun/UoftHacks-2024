@@ -14,6 +14,9 @@ function App() {
         </div>
         <div className='bar-fill'></div>
       </div>
+      <div className='post-button'>
+        <button>Create a Post</button>
+      </div>
       <div id='content'>
         <div className='content-item'>
           <div id='calendar-header'>

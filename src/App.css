@@ -92,3 +92,11 @@
   grid-column: 3 / 3;
   grid-row: 3 / 3;
 }
+
+.post-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
