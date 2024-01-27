@@ -36,7 +36,6 @@
   display: grid;
   grid-template-rows: 1fr 2fr;
   align-items: center;
-  background-color: #e4e4e4;
   text-align: center;
   width: 100%;
   border-radius: 10px;
