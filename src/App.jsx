@@ -1,9 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
+
+  const [myWeather, setMyWeather] = useState(null);
+
+  useEffect(() => {
+    async function fetchWeather() {
+      try {
+        const response = await fetch("http://api.weatherapi.com/v1/current.json?key=ae4c4fac8b7e43609bd173829242701&q=toronto");
+        const data = await response.json();
+        setMyWeather(data);
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+      }
+    }
+    fetchWeather();
+  }, []); // Empty dependency array to ensure the eff
 
   return (
     <div className='container-main'>
@@ -34,7 +47,17 @@ function App() {
       </div>
       <div id='sidebar'>
         <div className='content-item'>
-          <h1>Hello World</h1>
+          {myWeather && myWeather.location && (
+            <div id='weather'>
+              <h2>Weather</h2>
+              <img className='weather-image' src={myWeather.current.condition.icon} alt="Weather Icon" />
+              <p>Location: {myWeather.location.name}</p>
+              <p>Temperature: {myWeather.current.temp_c}°C</p>
+              <p>Condition: {myWeather.current.condition.text}</p>
+              <p>Last Updated: {myWeather.current.last_updated}</p>
+            </div>
+          )}
+          <div id='post'>Post</div>
         </div>
       </div>
       <div id='button-container'>
