@@ -20,7 +20,7 @@
 .content-item {
   height: 500px;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
   align-items: center;
   background-color: seashell;
   text-align: center;
@@ -28,6 +28,7 @@
 }
 
 #item1 {
+
   height: 100%;
   width: 100%;
 }
