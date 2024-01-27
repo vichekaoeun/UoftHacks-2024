@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Photo Album",
+  "description": "uofthacks-nostalgia",
+  "version": "1.0",
+  "action": {
+    "default_popup": "src/index.html",
+    "default_icon": "PUT THUMBNAIL HERE"
+  }
+}
