@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import { Link } from 'react-router-dom';
 
 function App() {
 
   const [myWeather, setMyWeather] = useState(null);
+  const [calendarEvents, setCalendarEvents] = useState([]);
 
   useEffect(() => {
     async function fetchWeather() {
@@ -16,19 +18,21 @@ function App() {
       }
     }
     fetchWeather();
-  }, []); // Empty dependency array to ensure the eff
+
+  }, []);
 
   return (
     <div className='container-main'>
       <div id='bar'>
         <div className='bar-text'>
           <h1 id='home'>Home</h1>
+        </div>
+        <div className='bar-fill'>
           <p>Welcome Back ____</p>
         </div>
-        <div className='bar-fill'></div>
       </div>
       <div className='post-button'>
-        <button>Create a Post</button>
+        <button><Link to='/post'>Create a Post</Link></button>
       </div>
       <div id='content'>
         <div className='content-item'>
@@ -42,6 +46,12 @@ function App() {
             </div>
           </div>
           <div id='calendar'>
+            <h2>Calendar Events</h2>
+            <ul>
+              {calendarEvents.map((event, index) => (
+                <li key={index}>{event.summary}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -59,9 +69,6 @@ function App() {
           )}
           <div id='post'>Post</div>
         </div>
-      </div>
-      <div id='button-container'>
-        <div className="button_plus"></div>
       </div>
     </div >
   )
