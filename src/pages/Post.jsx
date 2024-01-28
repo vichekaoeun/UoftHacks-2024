@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { useState } from 'react'
-import { Link } from 'react-router-dom';
 import './Post.css'
 
 const Post = () => {
@@ -55,7 +54,7 @@ const Post = () => {
                     </div>
                     {selectedFile && (
                         <div className='preview'>
-                            <img src={previewURL} alt='Preview' />
+                            <img src={previewURL} alt='Preview' style={{ maxWidth: '500px', maxHeight: '500px' }} />
                         </div>
                     )}
                 </div>
