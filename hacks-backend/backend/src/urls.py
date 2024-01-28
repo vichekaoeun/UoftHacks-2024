@@ -14,5 +14,5 @@ urlpatterns += [
     path('login/', views.login),
     path('logout/', views.logout),
     path('callback/', views.callback),
-    path('index/', views.index)
+    path('index/', views.index),
 ]

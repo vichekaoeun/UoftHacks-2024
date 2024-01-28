@@ -39,7 +39,6 @@ const Post = ({ onEntriesChange, onMoodScoreChange }) => {
         setSelectedFile(null);
         setPreviewURL('');
         setCaption('');
-
         onEntriesChange(newEntries);
         onMoodScoreChange(moodScore);
     };
