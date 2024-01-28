@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { Link } from 'react-router-dom';
 import Nav from './components/Navbar';
+import Post from './pages/Post'
 
 function App() {
 
   const [myWeather, setMyWeather] = useState(null);
   const [calendarEvents, setCalendarEvents] = useState([]);
+  const [entries, setEntries] = useState(0);
+  const [moodScore, setMoodScore] = useState(3);
 
   useEffect(() => {
     async function fetchWeather() {
@@ -22,6 +25,14 @@ function App() {
 
   }, []);
 
+  const handleEntriesChange = (newEntries) => {
+    setEntries(newEntries);
+  };
+
+  const handleMoodScoreChange = (newMoodScore) => {
+    setMoodScore(newMoodScore);
+  };
+
   return (
     <div className='container-main'>
       <div id='navbar'>
@@ -30,6 +41,15 @@ function App() {
       <div id='bar'>
         <div className='bar-text'>
           <h1 id='home'>Keepsake</h1>
+          <svg width="162" height="156" viewBox="0 0 162 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M123.5 13.9657H26.0404C13.3155 13.9657 3 24.2812 3 37.0061V83.2923C3 96.0172 13.3155 106.333 26.0404 106.333H123.5C136.225 106.333 146.541 96.0172 146.541 83.2923V37.0061C146.541 24.2812 136.225 13.9657 123.5 13.9657Z" fill="#FFCDCD" stroke="black" stroke-width="4.10703" stroke-miterlimit="10" />
+            <path d="M28.135 13.9658L32.6527 3H55.8164L58.9788 13.9658H28.135Z" stroke="black" stroke-width="4.10703" stroke-miterlimit="10" />
+            <path d="M93.2315 80.746H158.615C158.615 80.746 164.981 136.56 125.923 153.194C125.923 153.194 88.4262 138.45 93.2315 80.746Z" fill="#FFECA8" stroke="black" stroke-width="4.10703" stroke-miterlimit="10" />
+            <path d="M77.4192 99.967C99.4212 99.967 117.257 82.1308 117.257 60.1288C117.257 38.1268 99.4212 20.2906 77.4192 20.2906C55.4172 20.2906 37.5811 38.1268 37.5811 60.1288C37.5811 82.1308 55.4172 99.967 77.4192 99.967Z" fill="white" stroke="black" stroke-width="4.10703" stroke-miterlimit="10" />
+            <path d="M77.4193 85.8799C91.6412 85.8799 103.17 74.3507 103.17 60.1288C103.17 45.9069 91.6412 34.3777 77.4193 34.3777C63.1974 34.3777 51.6682 45.9069 51.6682 60.1288C51.6682 74.3507 63.1974 85.8799 77.4193 85.8799Z" fill="#FF9090" stroke="black" stroke-width="4.10703" stroke-miterlimit="10" />
+            <path d="M127.648 110.563C130.234 110.563 132.33 108.467 132.33 105.881C132.33 103.295 130.234 101.199 127.648 101.199C125.062 101.199 122.966 103.295 122.966 105.881C122.966 108.467 125.062 110.563 127.648 110.563Z" fill="#231F20" stroke="black" stroke-width="4.10703" stroke-miterlimit="10" />
+            <path d="M125.923 110.563L122.966 129.004H132.33L129.907 110.563H125.923Z" fill="#231F20" stroke="black" stroke-width="4.10703" stroke-miterlimit="10" />
+          </svg>
         </div>
         <div className='bar-fill'>
           <p>Welcome Back ______________</p>
@@ -67,11 +87,14 @@ function App() {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="100" height="100">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
                 </svg>
-                <p id='num-entry'>4</p>
+                <p id='num-entry'>
+                  N/A
+                </p>
               </div>
             </div>
             <div>
               <h1>Overall Mood</h1>
+              <p id='num-entry'>N/A</p>
             </div>
           </div>
         </div>
