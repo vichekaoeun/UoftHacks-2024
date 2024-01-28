@@ -60,7 +60,14 @@ function App() {
               <p>Last Updated: {myWeather.current.last_updated}</p>
             </div>
           )}
-          <div id='post'>Post</div>
+          <div id='post'>
+            <div>
+              <h2>Entries</h2>
+            </div>
+            <div>
+              <h2>Overall Mood</h2>
+            </div>
+          </div>
         </div>
       </div>
       <div className='footer'>
