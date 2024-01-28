@@ -1,5 +1,5 @@
 # Keepsake
-
+An app that allows users to save personal memories in the form of photos and text and through time the app would draw on impactful moments in their lives.
 # Setup
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 Currently, two official plugins are available:
