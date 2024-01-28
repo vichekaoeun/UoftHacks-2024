@@ -31,6 +31,8 @@ class NoteModel(models.Model):
 
 
 class NoteSerializer(serializers.ModelSerializer):
+    id = serializers.UUIDField()
+
     image_str = serializers.CharField(required=True)
     caption = serializers.CharField(required=True)
     feeling = serializers.CharField(required=True)
@@ -38,4 +40,4 @@ class NoteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = NoteModel
-        fields = ("image_str", "caption", "feeling", "impact")
+        fields = ("id", "image_str", "caption", "feeling", "impact")

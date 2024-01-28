@@ -89,8 +89,19 @@ class NoteAPIView(views.APIView):
             else:
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except json.JSONDecodeError:
-            return JsonResponse({"result": "error","message": "Json decoding error"}, status= 400)
+            return JsonResponse({"result": "error","message": "Json decoding error"}, status=400)
 
     def get(self, request):
         data = serializers.serialize('json', NoteModel.objects.all())
         return Response(data)
+
+    def delete(self, request):
+        # try:
+            # data = JSONParser().parse(request)
+            # serializer = NoteSerializer(data=data)
+            # if serializer.is_valid(raise_exception=True):
+            #     self.get_object(serializer).delete()
+        NoteModel.objects.all().delete()
+        return Response("deleted all")
+        # except json.JSONDecodeError:
+        #     return JsonResponse({"result": "error", "message":"decoding error, can not delete"}, status=400)
