@@ -8,6 +8,7 @@ const Post = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [caption, setCaption] = useState('');
     const [previewURL, setPreviewURL] = useState('');
+    const [entries, setEntries] = useState(0);
 
     // Function to handle file selection
     const handleFileSelect = (event) => {
@@ -25,6 +26,9 @@ const Post = () => {
         // Handle the selected file here
         console.log('Selected file:', selectedFile);
         console.log('Caption:', caption);
+        const newEntries = 1 + entries;
+        setEntries(newEntries);
+        console.log('Entries: ' + entries);
         setSelectedFile(null);
         setPreviewURL('');
         setCaption('');
