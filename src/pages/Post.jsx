@@ -25,6 +25,9 @@ const Post = () => {
         // Handle the selected file here
         console.log('Selected file:', selectedFile);
         console.log('Caption:', caption);
+        setSelectedFile(null);
+        setPreviewURL('');
+        setCaption('');
         // You can upload the file to the server or perform other actions here
     };
 
