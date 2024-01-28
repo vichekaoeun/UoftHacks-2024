@@ -154,3 +154,7 @@
   gap: 15px;
   align-items: center;
 }
+
+#navbar {
+  padding: 10px;
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import { Link } from 'react-router-dom';
+import Nav from './components/Navbar';
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
 
   return (
     <div className='container-main'>
+      <div id='navbar'>
+        <Nav />
+      </div>
       <div id='bar'>
         <div className='bar-text'>
           <h1 id='home'>Home</h1>
