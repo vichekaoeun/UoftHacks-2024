@@ -145,3 +145,12 @@
   display: flex;
   justify-content: center;
 }
+
+.footer {
+  grid-column: 2 / 3;
+  grid-row: 3 / 3;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+}
