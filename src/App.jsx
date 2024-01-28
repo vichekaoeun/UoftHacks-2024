@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     async function fetchWeather() {
       try {
-        const response = await fetch("http://api.weatherapi.com/v1/current.json?key=ae4c4fac8b7e43609bd173829242701&q=toronto");
+        const response = await fetch("https://api.weatherapi.com/v1/current.json?key=ae4c4fac8b7e43609bd173829242701&q=toronto");
         const data = await response.json();
         setMyWeather(data);
       } catch (error) {
