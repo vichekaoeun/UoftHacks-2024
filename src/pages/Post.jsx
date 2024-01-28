@@ -8,10 +8,13 @@ const Post = () => {
 
     const [selectedFile, setSelectedFile] = useState(null);
     const [caption, setCaption] = useState('');
+    const [previewURL, setPreviewURL] = useState('');
 
     // Function to handle file selection
     const handleFileSelect = (event) => {
-        setSelectedFile(event.target.files[0]);
+        const file = event.target.files[0]; // Get the selected file
+        setSelectedFile(file); // Set the selected file
+        setPreviewURL(URL.createObjectURL(file)); // Generate preview URL
     };
 
     const handleCaptionChange = (event) => {
@@ -50,6 +53,11 @@ const Post = () => {
                                 onChange={handleCaptionChange}></input>
                         </div>
                     </div>
+                    {selectedFile && (
+                        <div className='preview'>
+                            <img src={previewURL} alt='Preview' />
+                        </div>
+                    )}
                 </div>
             </div>
             <div className='header'>
