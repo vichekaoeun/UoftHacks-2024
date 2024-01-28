@@ -2,7 +2,7 @@ import json
 from django.http import JsonResponse
 from django.template import loader
 
-from .Note import NoteSerializer
+from .Note import NoteModel, NoteSerializer
 from rest_framework.parsers import JSONParser
 from rest_framework import views, status
 from rest_framework.response import Response
@@ -10,6 +10,7 @@ from authlib.integrations.django_client import OAuth
 from django.conf import settings
 from django.shortcuts import redirect, render, redirect
 from django.urls import reverse
+from django.core import serializers
 from urllib.parse import quote_plus, urlencode
 
 oauth = OAuth()
@@ -89,3 +90,7 @@ class NoteAPIView(views.APIView):
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except json.JSONDecodeError:
             return JsonResponse({"result": "error","message": "Json decoding error"}, status= 400)
+
+    def get(self, request):
+        data = serializers.serialize('json', NoteModel.objects.all())
+        return Response(data)
