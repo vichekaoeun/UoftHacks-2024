@@ -24,10 +24,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_extensions', #Great packaged to access abstract models
-    'django_filters', #Used with DRF
-    'rest_framework', #DRF package
-    'core', # New app
+    'django_extensions',
+    'django_filters',
+    'rest_framework',
+    'core',
+    'django_vite',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -38,6 +40,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware'
 ]
 
 ROOT_URLCONF = 'src.urls'
@@ -45,7 +49,7 @@ ROOT_URLCONF = 'src.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR.parent.parent],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -57,6 +61,8 @@ TEMPLATES = [
         },
     },
 ]
+
+# TEMPLATE_DIRS = [BASE_DIR.parent.parent]
 
 WSGI_APPLICATION = 'src.wsgi.application'
 
@@ -107,6 +113,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = ""
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -135,3 +142,23 @@ REST_FRAMEWORK = {
     ),
     'TEST_REQUEST_DEFAULT_FORMAT': 'vnd.api+json'
 }
+
+AUTH0_DOMAIN = os.environ.get("AUTH0_DOMAIN")
+AUTH0_CLIENT_ID = os.environ.get("AUTH0_CLIENT_ID")
+AUTH0_CLIENT_SECRET = os.environ.get("AUTH0_CLIENT_SECRET")
+
+DJANGO_VITE = {
+    "default": {
+        "dev_mode": True
+    }
+}
+
+DJANGO_VITE_DEV_MODE = True
+
+STATICFILES_DIRS = [
+    BASE_DIR / "assets"
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',
+]

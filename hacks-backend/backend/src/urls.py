@@ -10,5 +10,9 @@ urlpatterns = router.urls
 
 urlpatterns += [
     path('admin/', admin.site.urls),
-    path("note/", views.NoteAPIView.as_view())
+    path('note/', views.NoteAPIView.as_view()),
+    path('login/', views.login),
+    path('logout/', views.logout),
+    path('callback/', views.callback),
+    path('index/', views.index)
 ]
