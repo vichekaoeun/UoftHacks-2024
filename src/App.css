@@ -1,12 +1,11 @@
 .container-main {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   display: grid;
   grid-template-columns: 1fr 8fr 3fr;
   grid-template-rows: 1fr 3fr 0.5fr;
   gap: 10px;
-  margin: 10px;
+  background-color: #FBF2FF;
 }
 
 #content {
@@ -51,8 +50,9 @@
 }
 
 #weather {
-  background-color: #FBF2FF;
+  background-color: #FFFFFF;
   border-radius: 10px;
+  margin: 10px;
 }
 
 #post {
@@ -135,4 +135,8 @@
 
 .bar-fill {
   font-size: 30px;
+}
+
+#content-container {
+  background-color: #FBF2FF;
 }
