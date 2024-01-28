@@ -33,7 +33,7 @@
 .content-item {
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 0.5fr 2fr;
   align-items: center;
   text-align: center;
   width: 100%;
@@ -139,4 +139,9 @@
 
 #content-container {
   background-color: #FBF2FF;
+}
+
+#journal-title {
+  display: flex;
+  justify-content: center;
 }

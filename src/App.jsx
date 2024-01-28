@@ -36,22 +36,11 @@ function App() {
       </div>
       <div id='content'>
         <div className='content-item'>
-          <div id='calendar-header'>
-            <h1>February</h1>
-            <div id='calendar-button'>
-              <button>
-                left
-              </button>
-              <button>right</button>
-            </div>
+          <div id='journal-title'>
+            <h1><u>My Journal</u></h1>
           </div>
-          <div id='calendar'>
-            <h2>Calendar Events</h2>
-            <ul>
-              {calendarEvents.map((event, index) => (
-                <li key={index}>{event.summary}</li>
-              ))}
-            </ul>
+          <div id='journal-content'>
+
           </div>
         </div>
       </div>
