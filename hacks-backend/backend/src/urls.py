@@ -9,10 +9,10 @@ router = routers.DefaultRouter()
 urlpatterns = router.urls
 
 urlpatterns += [
-    path('admin/', admin.site.urls),
-    path('note/', views.NoteAPIView.as_view()),
-    path('login/', views.login),
-    path('logout/', views.logout),
-    path('callback/', views.callback),
-    path('index/', views.index)
+    path('admin/', admin.site.urls, name="admin"),
+    path('note/', views.NoteAPIView.as_view(), name="note"),
+    path('login/', views.login, name="login"),
+    path('logout/', views.logout, name="logout"),
+    path('callback/', views.callback, name="callback"),
+    path('index/', views.index, name="index")
 ]
