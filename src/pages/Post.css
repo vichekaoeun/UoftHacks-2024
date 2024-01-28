@@ -77,3 +77,12 @@ form {
     justify-content: center;
     align-items: center;
 }
+
+.caption-input {
+    width: 500px;
+}
+
+.upload-button {
+    display: flex;
+    justify-content: center;
+}
