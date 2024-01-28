@@ -28,7 +28,7 @@ const Post = ({ onEntriesChange, onMoodScoreChange }) => {
     };
 
     // Function to handle form submission
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         // Handle the selected file here
         console.log('Selected file:', selectedFile);
         console.log('Caption:', caption);
@@ -41,6 +41,36 @@ const Post = ({ onEntriesChange, onMoodScoreChange }) => {
         setCaption('');
         onEntriesChange(newEntries);
         onMoodScoreChange(moodScore);
+
+        const formData = new FormData();
+        formData.append('image_str', selectedFile);
+        formData.append('caption', caption);
+        formData.append('feeling', moodScore);
+        formData.append('impact', 0);
+
+        try {
+            const response = await fetch('http://localhost:8000/note/', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                console.log('Post successfully uploaded.');
+                const newEntries = 1 + entries;
+                setEntries(newEntries);
+                console.log('Entries: ' + newEntries);
+                console.log('Mood score:', moodScore);
+                setSelectedFile(null);
+                setPreviewURL('');
+                setCaption('');
+                onEntriesChange(newEntries);
+                onMoodScoreChange(moodScore);
+            } else {
+                console.error('Failed to upload post.');
+            }
+        } catch (error) {
+            console.error('Error uploading post:', error);
+        }
     };
 
     return (
