@@ -28,7 +28,7 @@ function App() {
           <h1 id='home'>Home</h1>
         </div>
         <div className='bar-fill'>
-          <p>Welcome Back ____</p>
+          <p>Welcome Back ______________</p>
         </div>
       </div>
       <div className='post-button'>

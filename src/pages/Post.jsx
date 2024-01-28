@@ -9,17 +9,19 @@ const Post = () => {
             <div id='post-content'>
                 <div id='post-items'>
                     <div className='up-post'>
-                        <h1>Upload</h1>
-                        <div>
-                            icon
-                        </div>
-                    </div>
-                    <div className='post-image'>
-                        <div id='text-box'>
-                            <input />
+                        <h1>Image</h1>
+                        <div id='caption'>
+                            <p>Caption</p>
+                            <input></input>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='header'>
+                <h1>Create a Post</h1>
+            </div>
+            <div className='submit-button'>
+                <button>Submit</button>
             </div>
         </div>
     )
