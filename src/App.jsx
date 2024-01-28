@@ -29,7 +29,7 @@ function App() {
       </div>
       <div id='bar'>
         <div className='bar-text'>
-          <h1 id='home'>Home</h1>
+          <h1 id='home'>Keepsake</h1>
         </div>
         <div className='bar-fill'>
           <p>Welcome Back ______________</p>

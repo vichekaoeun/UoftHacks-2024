@@ -9,6 +9,7 @@ const Post = () => {
     const [caption, setCaption] = useState('');
     const [previewURL, setPreviewURL] = useState('');
     const [entries, setEntries] = useState(0);
+    const [moodScore, setMoodScore] = useState(3);
 
     // Function to handle file selection
     const handleFileSelect = (event) => {
@@ -21,6 +22,11 @@ const Post = () => {
         setCaption(event.target.value);
     };
 
+    // Function to handle mood score change
+    const handleMoodScoreChange = (event) => {
+        setMoodScore(parseInt(event.target.value)); // Convert value to integer
+    };
+
     // Function to handle form submission
     const handleSubmit = () => {
         // Handle the selected file here
@@ -29,10 +35,10 @@ const Post = () => {
         const newEntries = 1 + entries;
         setEntries(newEntries);
         console.log('Entries: ' + entries);
+        console.log('Mood score:', moodScore);
         setSelectedFile(null);
         setPreviewURL('');
         setCaption('');
-        // You can upload the file to the server or perform other actions here
     };
 
     return (
@@ -58,12 +64,18 @@ const Post = () => {
                                 value={caption}
                                 onChange={handleCaptionChange}></input>
                         </div>
+                        <div id='scroll-bar'>
+                            <label for="score">Pick Mood from 1-5<br />1: Sad, 5: Happy</label>
+                            <input type="range" id="score" name="score" min="1" max="5" value={moodScore}
+                                onChange={handleMoodScoreChange}></input>
+                        </div>
                     </div>
                     {selectedFile && (
                         <div className='preview'>
                             <img src={previewURL} alt='Preview' style={{ maxWidth: '500px', maxHeight: '500px' }} />
                         </div>
                     )}
+
                 </div>
             </div>
             <div className='header'>
