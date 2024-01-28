@@ -7,7 +7,7 @@ const Nav = () => {
     return (
         <div className='nav-container'>
             <div id='home-page'>
-                <Link to='/signin'>SignIn</Link>
+                <Link to='/signin'>Login</Link>
             </div>
             <div id='post-page'>
                 <Link to='/signup'>SignUp</Link>
