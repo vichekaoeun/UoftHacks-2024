@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { useState } from 'react'
 import './Post.css'
 
-const Post = () => {
+const Post = ({ onEntriesChange, onMoodScoreChange }) => {
 
     const [selectedFile, setSelectedFile] = useState(null);
     const [caption, setCaption] = useState('');
@@ -39,6 +39,9 @@ const Post = () => {
         setSelectedFile(null);
         setPreviewURL('');
         setCaption('');
+
+        onEntriesChange(newEntries);
+        onMoodScoreChange(moodScore);
     };
 
     return (
