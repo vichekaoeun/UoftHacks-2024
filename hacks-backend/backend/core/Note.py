@@ -15,12 +15,11 @@ class NoteModel(models.Model):
                "4": "Good",
                "5": "Astonishing"}
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-
     image_str = models.TextField()
     caption = models.CharField(max_length=200)
     feeling = models.CharField(max_length=1, choices=ratings)
     impact = models.CharField(max_length=1, choices=ratings)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
 
     def __init__(self, image_str, caption, feeling, impact, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -31,8 +30,6 @@ class NoteModel(models.Model):
 
 
 class NoteSerializer(serializers.ModelSerializer):
-    id = serializers.UUIDField()
-
     image_str = serializers.CharField(required=True)
     caption = serializers.CharField(required=True)
     feeling = serializers.CharField(required=True)
@@ -40,4 +37,4 @@ class NoteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = NoteModel
-        fields = ("id", "image_str", "caption", "feeling", "impact")
+        fields = ("image_str", "caption", "feeling", "impact")
